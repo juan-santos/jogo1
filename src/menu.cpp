@@ -1,5 +1,11 @@
 #include "menu.h"
 
+#ifdef __unix__
+	#define SLASH "/"
+#else
+	#define SLASH "\\"
+#endif
+
 //construtor da tela menu
 Menu::Menu() {
 	alpha_max = 3 * 255;
@@ -19,9 +25,10 @@ int Menu::Run(sf::RenderWindow &App) {
 	sf::Text Menu2;
 	sf::Text Menu3;
 	int menu = 0;
-	string caminhoPasta = "D:\\Google Drive\\Estudos\\UFSCar\\Perfil 03\\Estrutura\\Jogo1\\bin\\Release\\";
+	//string caminhoPasta = "D:\\Google Drive\\Estudos\\UFSCar\\Perfil 03\\Estrutura\\Jogo1\\bin\\Release\\";
+	string path = "";
 
-	if (!Texture.loadFromFile(caminhoPasta+"files\\images\\imagem.png")){
+	if (!Texture.loadFromFile(path + "bin" + SLASH + "Release" + SLASH + "files" + SLASH + "images" + SLASH + "imagem.png")){
 		std::cerr << "Error loading imagem.png" << std::endl;
 		return (-1);
 	}
@@ -29,7 +36,7 @@ int Menu::Run(sf::RenderWindow &App) {
 	Sprite.setTexture(Texture);
 	Sprite.setColor(sf::Color(255, 255, 255, alpha));
 
-    if (!Font.loadFromFile(caminhoPasta+"files\\fonts\\verdanab.ttf")){
+    if (!Font.loadFromFile(path + "bin" + SLASH + "Release" + SLASH + "files" + SLASH + "fonts" + SLASH + "verdanab.ttf")){
 
 		std::cerr << "Error loading verdanab.ttf" << std::endl;
 		return (-1);
