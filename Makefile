@@ -16,11 +16,11 @@ INC := -I include
 $(TARGET): main.cpp $(OBJECTS)
 	@mkdir -p $(dir $@)
 	@echo " Linking..."
-	@echo " $(CC) $^ -o $(TARGET) $(LIB)"; $(CC)  $(INC) $^ -o $(TARGET) $(LIB)
+	@echo " $(CC) $^ -g -o $(TARGET) $(LIB)"; $(CC)  $(INC) $^ -o $(TARGET) $(LIB)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 	@mkdir -p $(dir $@)
-	@echo " $(CC) $(CFLAGS) $(INC) -c -o $@ $<"; $(CC) $(CFLAGS) $(INC) -c -o $@ $<
+	@echo " $(CC) $(CFLAGS) $(INC) -g -c -o $@ $<"; $(CC) $(CFLAGS) $(INC) -c -o $@ $<
 
 clean:
 	@echo " Cleaning...";

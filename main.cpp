@@ -20,9 +20,8 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
-#include "Window.hpp"
-#include "Game.hpp"
-#include "Menu.hpp"
+#include "include/Game.hpp"
+#include "include/MenuState.hpp"
 
 using namespace std;
 
@@ -31,27 +30,8 @@ using namespace std;
  ***********************************************************************/
 int main()
 {
-	//vetor de ponteiros de telas
-	std::vector<Telas*> listaTelas;
-	int telaAtual = 0;
-
-	//Window creation
-	sf::RenderWindow App(sf::VideoMode(640, 480, 32), "SFML Demo 3");
-
-	//retira o cursos do mouse
-	App.setMouseCursorVisible(false);
-
-	//Screens preparations
-	Menu a;
-	listaTelas.push_back(&a);
-	Jogo b;
-	listaTelas.push_back(&b);
-
-	//Main loop
-	while (telaAtual >= 0) {
-
-		telaAtual = listaTelas[telaAtual]->Run(App);
-	}
+	Game game;
+	game.init();
 
 	return EXIT_SUCCESS;
 }

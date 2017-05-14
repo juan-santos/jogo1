@@ -17,7 +17,6 @@
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
-#include "Screen.hpp"
 #include "StateManager.hpp"
 #include "MenuState.hpp"
 
@@ -30,13 +29,13 @@ public:
   void init();
 private:
   void handleInput();
-  void update(sf::Time dt);
+  void update(const float dt);
   void draw();
 
-  sf::RenderWindow  screen;
+  sf::RenderWindow window;
   static const sf::Time fps;
   StateManager states;
-  Menu menu;
+
   bool isPlaying;
 };
 

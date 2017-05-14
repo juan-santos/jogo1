@@ -14,8 +14,6 @@
  *	Libraries
  ***********************************************************************/
 #include <iostream>
-#include "Screen.hpp"
-#include "Button.hpp"
 #include <string>
 
 #include <SFML/Graphics.hpp>

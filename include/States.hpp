@@ -26,8 +26,9 @@
 class States {
 public:
   States();
+  virtual ~States();
   virtual void update(sf::Time dt) = 0;
-  virtual void handleEvent(const sf::Event &event) = 0;
+  virtual void handleInput() = 0;
   virtual void draw() = 0;
 };
 

@@ -1,20 +1,19 @@
 /*
 
-  StackIT: Menu.hpp
+  StackIT: MenuState.hpp
   UFSCAR@2017
 
   Esta classe é responsável por compor o menu do jogo.
 
 */
 
-#ifndef MENU_HPP
-#define MENU_HPP
+#ifndef MENUSTATE_HPP
+#define MENUSTATE_HPP
 
 /*
  *	Libraries
  ***********************************************************************/
 #include <iostream>
-#include "Screen.hpp"
 #include "Button.hpp"
 #include "States.hpp"
 #include <string>
@@ -23,11 +22,11 @@
 /*
  *	Classes
  ***********************************************************************/
-class Menu : public States, public Screen {
+class MenuState : public States {
 public:
-  Menu(sf::RenderWindow &window);
+  MenuState();
   virtual void update(sf::Time dt);
-  virtual void handleEvent(const sf::Event &event);
+  virtual void handleInput();
   virtual void draw();
   void playMusic();
   void stopMusic();
@@ -38,13 +37,13 @@ private:
     void loadTextures();
     void render();
 
-    sf::RenderWindow &window;
+    sf::RenderWindow window;
     //sf::Music song;
     //std::array<>
     //std::array<>
 
-    Button play;
-    Button quit;
+    //Button play;
+    //Button quit;
 };
 
-#endif // MENU_HPP
+#endif // MENUSTATE_HPP
