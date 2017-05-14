@@ -31,7 +31,7 @@ using namespace std;
 int main()
 {
 	Game game;
-	game.init();
+	game.loop();
 
 	return EXIT_SUCCESS;
 }

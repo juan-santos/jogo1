@@ -1,35 +1,42 @@
 #include "../include/MenuState.hpp"
 
-
-MenuState::MenuState() {
+MenuState::MenuState(sf::RenderWindow *window) {
+	ended = 0;
 };
 
-void MenuState::update(sf::Time dt) {
+MenuState::~MenuState() {
+};
+
+void MenuState::update(const float dt) {
 
 };
 
-void MenuState::draw() {
-	this->window.clear(Color::Black);
+void MenuState::draw(const float dt) {
+	this->window->clear(sf::Color::Black);
 };
 
 void MenuState::handleInput() {
 	sf::Event event;
 
-	while (this->window.pollEvent(event)) {
+	while (this->window->pollEvent(event)) {
 		switch (event.type) {
-			case sf::Event:Closed:
-				this->window.close();
+			case sf::Event::Closed:
+				this->window->close();
 			break;
-			case sf::Event:KeyPressed:
-				if (event.key.code == Keyboard::Escape)
-					this->window.close();
-				else if (event.key.code == Keyboard::Space)
-					this->startGame();
+			case sf::Event::KeyPressed:
+				if (event.key.code == sf::Keyboard::Escape)
+					this->window->close();
+				else if (event.key.code == sf::Keyboard::Space)
+					ended = 1;
 			break;
 			default:
 			break;
 		}
 	}
+};
+
+int MenuState::hasEnded() {
+	return this->ended;
 };
 
 void MenuState::playMusic() {

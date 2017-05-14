@@ -1,10 +1,8 @@
 /*
-
   StackIT: States.hpp
   UFSCAR@2017
 
   Essa classe é responsável por definir o escopo dos estados de jogo.
-
 */
 
 #ifndef STATES_HPP
@@ -18,18 +16,17 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "States.hpp"
 
 /*
  *	Classes
  ***********************************************************************/
 class States {
 public:
-  States();
-  virtual ~States();
-  virtual void update(sf::Time dt) = 0;
+  virtual ~States(){};
+  virtual void update(const float dt) = 0;
   virtual void handleInput() = 0;
-  virtual void draw() = 0;
+  virtual void draw(const float dt) = 0;
+  virtual int hasEnded() = 0;
 };
 
 #endif // STATES_HPP

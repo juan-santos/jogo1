@@ -26,8 +26,8 @@
 class StateManager {
 public:
   StateManager();
-  void pushState(States state);
-  void changeState(States state);
+  void pushState(States *state);
+  void changeState(States *state);
   void popState();
   void clearStates();
   States *topState();

@@ -1,7 +1,7 @@
 #include "../include/StateManager.hpp"
 
 StateManager::StateManager() {
-
+    // nothing to see here
 };
 
 void StateManager::pushState(States *state) {

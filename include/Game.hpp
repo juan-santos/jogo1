@@ -17,8 +17,9 @@
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
-#include "StateManager.hpp"
 #include "MenuState.hpp"
+#include "SplashState.hpp"
+#include "StateManager.hpp"
 
 /*
  *	Classes
@@ -26,17 +27,20 @@
 class Game {
 public:
   Game();
-  void init();
+  void loop();
+  
 private:
-  void handleInput();
-  void update(const float dt);
-  void draw();
-
   sf::RenderWindow window;
   static const sf::Time fps;
-  StateManager states;
-
+  StateManager stateManager;
   bool isPlaying;
+
+  enum gameStates {onSplash, onMenu, onPlay, onPause, OnGameOver, onFinish};
+  int currentState;
+  int ended;
+
+  SplashState *splash;
+  MenuState *menu;
 };
 
 #endif // GAME_HPP

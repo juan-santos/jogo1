@@ -6,6 +6,7 @@
   A classe TextureManager é responsável por gerenciar o uso de texturas.
 
 */
+
 #ifndef RESOURCEMANAGER_HPP
 #define RESOURCEMANAGER_HPP
 
@@ -13,7 +14,6 @@
  *	Libraries
  ***********************************************************************/
 #include <iostream>
-#include "Screen.hpp"
 #include "Button.hpp"
 #include <string>
 
@@ -29,9 +29,10 @@ template <typename Resource, typename Identifier>
 class ResourceManager {
 public:
   ResourceManager();
-  void loadTexture(Identifier id, const std::string &filename);
+  void loadTextures(Identifier id, const std::string &filename);
   Resource &getTexture(Identifier id);
   const Resource &getTexture(Identifier id) const;
+
 private:
   std::map<Identifier, std::unique_ptr<Resource>> TextureMap;
 };
