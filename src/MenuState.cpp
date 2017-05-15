@@ -1,6 +1,7 @@
 #include "../include/MenuState.hpp"
 
 MenuState::MenuState(sf::RenderWindow *window) {
+	this->window = window;
 	ended = 0;
 };
 
