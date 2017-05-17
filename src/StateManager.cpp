@@ -1,5 +1,5 @@
 #include "../include/StateManager.hpp"
-
+#include <iostream>
 StateManager::StateManager() {
     // nothing to see here
 };

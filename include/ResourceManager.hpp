@@ -14,9 +14,7 @@
  *	Libraries
  ***********************************************************************/
 #include <iostream>
-#include "Button.hpp"
 #include <string>
-
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
@@ -25,16 +23,16 @@ using namespace std;
 /*
  *	Classes
  ***********************************************************************/
-template <typename Resource, typename Identifier>
+template <typename Resource>
 class ResourceManager {
 public:
   ResourceManager();
-  void loadTextures(Identifier id, const std::string &filename);
-  Resource &getTexture(Identifier id);
-  const Resource &getTexture(Identifier id) const;
+  void loadResources(const int id, const std::string &filename);
+  Resource &getReference(const int id);
+  //const Resource &getTexture(Identifier id) const;
 
 private:
-  std::map<Identifier, std::unique_ptr<Resource>> TextureMap;
+  std::map<int, Resource> TextureMap;
 };
 
 #endif // RESOURCEMANAGER_HPP

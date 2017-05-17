@@ -1,7 +1,7 @@
 /*
   StackIT: MenuState.hpp
   UFSCAR@2017
-  
+
   Esta classe é responsável por compor o menu do jogo.
 */
 
@@ -12,10 +12,12 @@
  *	Libraries
  ***********************************************************************/
 #include <iostream>
-#include "Button.hpp"
 #include "States.hpp"
+#include "ResourceManager.hpp"
 #include <string>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+
 
 /*
  *	Classes
@@ -28,15 +30,24 @@ public:
   void handleInput();
   void draw(const float dt);
   int hasEnded();
+  void loadResources();
   void playMusic();
   void stopMusic();
+  int getOption();
 
 private:
     int ended;
-    enum class Layer {background, top, layers};
-    enum class LayerText {logo, player, misc, start1, start2, quit1, quit2, layers};
-    void loadTextures();
-    void render();
+    sf::Texture texture;
+    sf::Sprite sprite;
+    sf::Music music;
+    sf::Font font;
+    sf::Text playgame;
+    sf::Text exitgame;
+    //enum Elements {BACKGROUND, LOGO};
+    //ResourceManager<sf::Texture> texture;
+
+    //enum Fonts {FONT1};
+    //ResourceManager<sf::Font> font;
 
     sf::RenderWindow *window;
 };

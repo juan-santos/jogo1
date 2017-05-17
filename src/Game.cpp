@@ -4,17 +4,30 @@
 #include <iostream>
 using namespace std;
 
-Game::Game() : window(sf::VideoMode(800, 600), "Stack it!", sf::Style::Close) {
-	window.setFramerateLimit(60);
+Game::Game() {
+	this->window = new sf::RenderWindow(sf::VideoMode(800, 600), "Stack it!", sf::Style::Close);
+	//window->create(sf::VideoMode(800, 600), "Stack it!", sf::Style::Close);
+	window->setFramerateLimit(30);
 };
 
+Game::~Game() {
+		while (!stateManager.isEmpty())
+		 stateManager.popState();
+
+	 delete splash;
+	 delete menu;
+	 delete game;
+
+	 delete window;
+};
+
+
 void Game::loop() {
-	splash = new SplashState(&this->window);
+	splash = new SplashState(this->window);
 	stateManager.pushState(splash);
 	currentState = gameStates::onSplash;
 	sf::Clock clock;
-
-	while (this->window.isOpen()) {
+	while (this->window->isOpen()) {
 		sf::Time elapsed = clock.restart();
 		float dt = elapsed.asSeconds();
 
@@ -30,15 +43,23 @@ void Game::loop() {
 		} else {
 			switch (currentState) {
 				case gameStates::onSplash:
-						currentState = -1;
-						menu = new MenuState(&this->window);
-						stateManager.pushState(menu);
-						currentState = gameStates::onMenu;
+					menu = new MenuState(this->window);
+					stateManager.pushState(menu);
+					currentState = gameStates::onMenu;
 				break;
 				case gameStates::onMenu:
-					currentState = -1;
+					if (ended == 1) {
+						this->window->close();
+					} else {
+						game = new GameState(this->window);
+						stateManager.pushState(game);
+						currentState = gameStates::onPlay;
+					}
 				break;
 				case gameStates::onPlay:
+					if (ended == 1) {
+						this->window->close();
+					}
 				break;
 				case gameStates::onPause:
 				break;
@@ -47,10 +68,10 @@ void Game::loop() {
 				case gameStates::onFinish:
 				break;
 				default:
-					window.close();
+					window->close();
 				break;
 			}
 		}
-		this->window.display();
+		this->window->display();
 	}
 };

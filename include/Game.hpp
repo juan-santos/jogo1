@@ -18,6 +18,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include "MenuState.hpp"
+#include "GameState.hpp"
 #include "SplashState.hpp"
 #include "StateManager.hpp"
 
@@ -27,10 +28,11 @@
 class Game {
 public:
   Game();
+  ~Game();
   void loop();
-  
+
 private:
-  sf::RenderWindow window;
+  sf::RenderWindow *window;
   static const sf::Time fps;
   StateManager stateManager;
   bool isPlaying;
@@ -41,6 +43,7 @@ private:
 
   SplashState *splash;
   MenuState *menu;
+  GameState *game;
 };
 
 #endif // GAME_HPP

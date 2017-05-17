@@ -18,7 +18,8 @@
  *	Libraries
  ***********************************************************************/
 #include <iostream>
-#include <SFML/Graphics.hpp>
+#include <cstdlib>
+#include <ctime>
 
 #include "include/Game.hpp"
 #include "include/MenuState.hpp"
@@ -30,6 +31,8 @@ using namespace std;
  ***********************************************************************/
 int main()
 {
+	srand(time(NULL));
+
 	Game game;
 	game.loop();
 

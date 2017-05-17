@@ -10,7 +10,7 @@ SOURCES:= $(wildcard $(SRCDIR)/*.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%, $(BUILDDIR)/%, $(SOURCES:.$(SRCEXT)=.o))
 
 CFLAGS := -Wall -std=c++11
-LIB := -lsfml-graphics -lsfml-window -lsfml-system
+LIB := -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 INC := -I include
 
 $(TARGET): main.cpp $(OBJECTS)

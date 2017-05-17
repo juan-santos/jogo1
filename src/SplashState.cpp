@@ -6,12 +6,11 @@ SplashState::SplashState(sf::RenderWindow *window) {
 	this->window = window;
 	ended = 0;
 	splashTime = 0.f;
-	if (logoTexture.loadFromFile("bin/Release/files/images/imagem.png"))
+	if (logoTexture.loadFromFile("bin/Release/files/images/splash/logo.png"))
 		logoSprite.setTexture(logoTexture);
 };
 
 SplashState::~SplashState() {
-	// nothing to see here
 };
 
 void SplashState::update(const float dt) {
@@ -21,7 +20,8 @@ void SplashState::update(const float dt) {
 };
 
 void SplashState::draw(const float dt) {
-	this->window->clear(sf::Color(200, 200, 200));
+	this->window->clear(sf::Color::White);
+	logoSprite.setPosition(300, 227);
 	this->window->draw(logoSprite);
 };
 
@@ -34,11 +34,12 @@ void SplashState::handleInput() {
 				this->window->close();
 			break;
 			case sf::Event::KeyPressed:
-				if (event.key.code == sf::Keyboard::Escape)
-					this->window->close();
-				// Deixei só a opcao de sair para a Splash
-				else if (event.key.code == sf::Keyboard::Space)
+				if (event.key.code == sf::Keyboard::Escape) {
 					ended = 1;
+					//return;
+				} else if (event.key.code == sf::Keyboard::Space) {
+					ended = 1;
+				}
 			break;
 				default:
 			break;

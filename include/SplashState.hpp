@@ -1,7 +1,7 @@
 /*
   StackIT: SplashState.hpp
   UFSCAR@2017
-  
+
   Esta classe é responsável por compor a tela de Splash do jogo.
 */
 
@@ -12,7 +12,6 @@
  *	Libraries
  ***********************************************************************/
 #include <iostream>
-#include "Button.hpp"
 #include "States.hpp"
 #include <string>
 #include <SFML/Graphics.hpp>
