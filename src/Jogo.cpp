@@ -51,13 +51,13 @@ Jogo::Jogo(void) {
 }
 
 void Jogo::desenharVida(sf::RenderWindow &App){
-    int nova_altura_y = 300;
+    int posx = 552;
 
     //desenho a quantidade de cora��es
     for(int i = 0; i < this->nroVidas; i++){
-        this->vidas.setPosition(730, nova_altura_y);
+        this->vidas.setPosition(posx, 350);
         App.draw(this->vidas);
-        nova_altura_y += 50;
+        posx += 50;
     }
 
 }
@@ -123,8 +123,6 @@ void Jogo::desenharPlacar(sf::RenderWindow &App){
 }
 
 void Jogo::desenharPainel(sf::RenderWindow &App){
-
-
     this->desenharPlacar(App);
     this->desenharVida(App);
 }
