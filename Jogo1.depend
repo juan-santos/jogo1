@@ -575,7 +575,7 @@
 	"Vitoria.h"
 	"Derrota.h"
 
-1495131977 d:\arquivos usuario\documentos\desktop\jogo1\include\jogo.h
+1495133950 d:\arquivos usuario\documentos\desktop\jogo1\include\jogo.h
 	"../src/Pilha.cpp"
 	<iostream>
 	"cScreen.h"
@@ -630,4 +630,7 @@
 
 1495122618 source:d:\arquivos usuario\documentos\desktop\jogo1\src\vitoria.cpp
 	"Vitoria.h"
+
+1495134465 source:d:\arquivos usuario\documentos\desktop\jogo1\src\jogo.cpp
+	"Jogo.h"
 

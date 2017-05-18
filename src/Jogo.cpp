@@ -22,6 +22,7 @@ Jogo::Jogo(void) {
     this->posx = 275;
     this->posy = 350;
     this->i = 0;
+    this->alturaTopo = 434;
 
     //não há imagem para o sprite de lançamento
     this->objetoLancamento = -1;
@@ -40,7 +41,7 @@ Jogo::Jogo(void) {
         this->text_placar2.setFont(Font);
         this->text_placar2.setColor(sf::Color(255, 255, 255, 255));
         this->text_placar2.setCharacterSize(70);
-        this->text_placar2.setPosition({602.f, 180.f });
+        this->text_placar2.setPosition({600.f, 180.f });
     }
 
     //número inicial de vidas
@@ -129,9 +130,9 @@ void Jogo::colisao(sf::RenderWindow &App){
     int posicaoX = this->lancamento.getPosition().x;
 
     //se o objeto não chegou no mesmo y da bruxinha
-    if(posicaoY <= 435){
-        //vou avançando com o sprite e aumentando a velocidade
-        posicaoY = posicaoY + 1 + int(this->placar/30);
+    if(posicaoY <= this->alturaTopo){
+        //vou avançando com o sprite
+        posicaoY = posicaoY + 4;
 
         this->lancamento.setPosition(posicaoX, posicaoY);
         //só exibo na tela se o item estiver em movimento
@@ -146,6 +147,7 @@ void Jogo::colisao(sf::RenderWindow &App){
             if(fabs(this->posx + (LARGURA_ITEM/2) - posicaoX) < LARGURA_ITEM){
                 this->placar+= SCORE_ACERTO;
                 this->pilha.Insere(this->objetoLancamento);
+                this->alturaTopo -= 69;
             } else{
                 //se o jogador deixou o item cair
                 this->nroVidas--;
@@ -216,21 +218,20 @@ int Jogo::Run(sf::RenderWindow &App) {
 	//enquanto estiver rodando
 	while (Running) {
 
+        //perdeu o jogo
+        if(this->nroVidas < 0){
+            return 3;
+        }
+
+        //venceu
+        if(this->placar == NUMERO_ACERTOS_VITORIA*SCORE_ACERTO){
+            return 2;
+        }
+
         this->lancarObjeto(App);
 
 		//Verifico os eventos possíveis
 		while (App.pollEvent(Event)) {
-
-            //perdeu o jogo
-            if(this->nroVidas < 0){
-                return 3;
-            }
-
-            //venceu
-            if(this->placar == NUMERO_ACERTOS_VITORIA*SCORE_ACERTO){
-                return 2;
-            }
-
 			// caso feche a janela
 			if (Event.type == sf::Event::Closed)
 				return -1;

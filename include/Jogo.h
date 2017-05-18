@@ -34,6 +34,7 @@ private:
     int nroVidas;
     int h;
     int i;
+    int alturaTopo;
 
     Pilha<int> pilha;
     Pilha<int> paux;
