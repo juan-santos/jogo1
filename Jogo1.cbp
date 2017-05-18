@@ -76,15 +76,17 @@
 		<Linker>
 			<Add directory="C:/Program Files (x86)/CodeBlocks/sfml/lib" />
 		</Linker>
-		<Unit filename="include/Instrucao.h" />
+		<Unit filename="include/Derrota.h" />
 		<Unit filename="include/Jogo.h" />
 		<Unit filename="include/Pilha.h" />
+		<Unit filename="include/Vitoria.h" />
 		<Unit filename="include/cScreen.h" />
 		<Unit filename="include/menu.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/Instrucao.cpp" />
+		<Unit filename="src/Derrota.cpp" />
 		<Unit filename="src/Jogo.cpp" />
 		<Unit filename="src/Pilha.cpp" />
+		<Unit filename="src/Vitoria.cpp" />
 		<Unit filename="src/cScreen.cpp" />
 		<Unit filename="src/menu.cpp" />
 		<Extensions>

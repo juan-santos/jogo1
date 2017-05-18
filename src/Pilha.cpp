@@ -77,3 +77,25 @@ bool Pilha<T>::EstaVazia() const
 {
     return Topo == -1;
 }
+
+template <class T>
+void Pilha<T>::Inverter()
+{
+    if(!this->EstaVazia()){
+        Pilha<T> aux;
+        T elemento;
+
+        while(this->Retira(elemento)){
+            aux.Insere(elemento);
+        }
+
+        (*this) = aux;
+    }
+
+}
+
+template <class T>
+int Pilha<T>::getTamanho() const
+{
+   return this->Topo + 1;
+}

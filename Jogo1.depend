@@ -1,11 +1,12 @@
 # depslib dependency file v1.0
-1494963375 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\main.cpp
+1495122052 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
-	"cScreen.h"
+	<ctime>
 	"Jogo.h"
-	"Instrucao.h"
-	"menu.h"
+	"Menu.h"
+	"Vitoria.h"
+	"Derrota.h"
 
 1486736397 c:\program files (x86)\codeblocks\sfml\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -398,12 +399,15 @@
 1493670593 d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\include\cscreen.h
 	<SFML/Graphics.hpp>
 
-1495027715 d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\include\jogo.h
+1495116457 d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\include\jogo.h
+	"../src/Pilha.cpp"
 	<iostream>
 	"cScreen.h"
+	"Pilha.h"
 	<string>
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
+	<sstream>
 
 1494948649 d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\include\instrucao.h
 	<iostream>
@@ -411,10 +415,10 @@
 	<string>
 	<SFML/Graphics.hpp>
 
-1494959231 d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\include\menu.h
+1495089254 d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\include\menu.h
 	<iostream>
-	"cScreen.h"
 	<string>
+	"cScreen.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 
@@ -424,11 +428,11 @@
 1494952474 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\src\instrucao.cpp
 	"Instrucao.h"
 
-1495027642 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\src\jogo.cpp
+1495122656 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\src\jogo.cpp
 	"Jogo.h"
 
-1494979972 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\src\menu.cpp
-	"menu.h"
+1495122004 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\src\menu.cpp
+	"Menu.h"
 
 1486736397 c:\program files (x86)\codeblocks\sfml\include\sfml\audio.hpp
 	<SFML/System.hpp>
@@ -533,9 +537,32 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1495026865 d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\include\pilha.h
+1495105086 d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\include\pilha.h
 	<iostream>
 
-1495026904 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\src\pilha.cpp
+1495105148 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\src\pilha.cpp
 	"Pilha.h"
+
+1495105148 d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\src\pilha.cpp
+	"Pilha.h"
+
+1495122535 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\src\derrota.cpp
+	"Derrota.h"
+
+1495122136 d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\include\derrota.h
+	<iostream>
+	<string>
+	"cScreen.h"
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+
+1495122618 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\src\vitoria.cpp
+	"Vitoria.h"
+
+1495122145 d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\include\vitoria.h
+	<iostream>
+	<string>
+	"cScreen.h"
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
 
