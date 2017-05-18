@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1494348203 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\jogo1\main.cpp
+1494963375 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\main.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"cScreen.h"
 	"Jogo.h"
+	"Instrucao.h"
 	"menu.h"
 
 1486736397 c:\program files (x86)\codeblocks\sfml\include\sfml\graphics.hpp
@@ -394,26 +395,147 @@
 	<string>
 	<vector>
 
-1493670593 d:\google drive\estudos\ufscar\perfil 03\estrutura\jogo1\include\cscreen.h
+1493670593 d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\include\cscreen.h
 	<SFML/Graphics.hpp>
 
-1493670504 d:\google drive\estudos\ufscar\perfil 03\estrutura\jogo1\include\jogo.h
+1495027715 d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\include\jogo.h
 	<iostream>
 	"cScreen.h"
+	<string>
 	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
 
-1493674979 d:\google drive\estudos\ufscar\perfil 03\estrutura\jogo1\include\menu.h
+1494948649 d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\include\instrucao.h
 	<iostream>
 	"cScreen.h"
 	<string>
 	<SFML/Graphics.hpp>
 
-1493668011 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\jogo1\src\cscreen.cpp
+1494959231 d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\include\menu.h
+	<iostream>
+	"cScreen.h"
+	<string>
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+
+1493668011 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\src\cscreen.cpp
 	"cScreen.h"
 
-1493670290 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\jogo1\src\jogo.cpp
+1494952474 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\src\instrucao.cpp
+	"Instrucao.h"
+
+1495027642 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\src\jogo.cpp
 	"Jogo.h"
 
-1493675083 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\jogo1\src\menu.cpp
+1494979972 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\src\menu.cpp
 	"menu.h"
+
+1486736397 c:\program files (x86)\codeblocks\sfml\include\sfml\audio.hpp
+	<SFML/System.hpp>
+	<SFML/Audio/InputSoundFile.hpp>
+	<SFML/Audio/Listener.hpp>
+	<SFML/Audio/Music.hpp>
+	<SFML/Audio/OutputSoundFile.hpp>
+	<SFML/Audio/Sound.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundBufferRecorder.hpp>
+	<SFML/Audio/SoundFileFactory.hpp>
+	<SFML/Audio/SoundFileReader.hpp>
+	<SFML/Audio/SoundFileWriter.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/Audio/SoundStream.hpp>
+
+1486736455 c:\program files (x86)\codeblocks\sfml\include\sfml\audio\inputsoundfile.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+
+1486736397 c:\program files (x86)\codeblocks\sfml\include\sfml\audio\export.hpp
+	<SFML/Config.hpp>
+
+1486736397 c:\program files (x86)\codeblocks\sfml\include\sfml\audio\listener.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Vector3.hpp>
+
+1486736455 c:\program files (x86)\codeblocks\sfml\include\sfml\audio\music.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundStream.hpp>
+	<SFML/Audio/InputSoundFile.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+
+1486736455 c:\program files (x86)\codeblocks\sfml\include\sfml\audio\soundstream.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/System/Mutex.hpp>
+	<cstdlib>
+
+1486736397 c:\program files (x86)\codeblocks\sfml\include\sfml\audio\soundsource.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Vector3.hpp>
+
+1486736397 c:\program files (x86)\codeblocks\sfml\include\sfml\audio\alresource.hpp
+	<SFML/Audio/Export.hpp>
+
+1486736397 c:\program files (x86)\codeblocks\sfml\include\sfml\audio\outputsoundfile.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<string>
+
+1486736397 c:\program files (x86)\codeblocks\sfml\include\sfml\audio\sound.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Time.hpp>
+	<cstdlib>
+
+1486736397 c:\program files (x86)\codeblocks\sfml\include\sfml\audio\soundbuffer.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+	<set>
+
+1486736397 c:\program files (x86)\codeblocks\sfml\include\sfml\audio\soundbufferrecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<vector>
+
+1486736397 c:\program files (x86)\codeblocks\sfml\include\sfml\audio\soundrecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<vector>
+	<string>
+
+1486736397 c:\program files (x86)\codeblocks\sfml\include\sfml\audio\soundfilefactory.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+	<vector>
+	<SFML/Audio/SoundFileFactory.inl>
+
+1486736397 c:\program files (x86)\codeblocks\sfml\include\sfml\audio\soundfilefactory.inl
+
+1486736397 c:\program files (x86)\codeblocks\sfml\include\sfml\audio\soundfilereader.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+
+1486736397 c:\program files (x86)\codeblocks\sfml\include\sfml\audio\soundfilewriter.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+
+1495026865 d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\include\pilha.h
+	<iostream>
+
+1495026904 source:d:\google drive\estudos\ufscar\perfil 03\estrutura\primeiro jogo\jogo1\src\pilha.cpp
+	"Pilha.h"
 

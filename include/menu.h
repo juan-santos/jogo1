@@ -6,6 +6,7 @@
 #include <string>
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 using namespace std;
 
 class Menu: public Telas{
