@@ -2,44 +2,14 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Release" />
-	<File name="include\Derrota.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\Jogo.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="466" topLine="9" />
-		</Cursor>
-	</File>
-	<File name="include\Jogo.h" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="844" topLine="32" />
+			<Cursor1 position="435" topLine="3" />
 		</Cursor>
 	</File>
 	<File name="include\Vitoria.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="473" topLine="7" />
-		</Cursor>
-	</File>
-	<File name="include\Pilha.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="280" topLine="1" />
-		</Cursor>
-	</File>
-	<File name="src\Vitoria.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1218" topLine="14" />
-		</Cursor>
-		<Folding>
-			<Collapse line="16" />
-			<Collapse line="24" />
-			<Collapse line="31" />
-		</Folding>
-	</File>
-	<File name="src\cScreen.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="22" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Derrota.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1079" topLine="36" />
 		</Cursor>
 	</File>
 	<File name="include\cScreen.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -56,22 +26,50 @@
 			<Collapse line="43" />
 		</Folding>
 	</File>
+	<File name="src\cScreen.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="22" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Pilha.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="280" topLine="1" />
+		</Cursor>
+	</File>
+	<File name="src\Jogo.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4115" topLine="56" />
+		</Cursor>
+		<Folding>
+			<Collapse line="10" />
+			<Collapse line="19" />
+			<Collapse line="181" />
+			<Collapse line="200" />
+		</Folding>
+	</File>
 	<File name="main.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1057" topLine="38" />
 		</Cursor>
 	</File>
-	<File name="src\Jogo.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Derrota.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4904" topLine="88" />
+			<Cursor1 position="1079" topLine="36" />
+		</Cursor>
+	</File>
+	<File name="include\Derrota.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="466" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="src\Vitoria.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1218" topLine="14" />
 		</Cursor>
 		<Folding>
-			<Collapse line="8" />
-			<Collapse line="17" />
-			<Collapse line="162" />
-			<Collapse line="171" />
-			<Collapse line="177" />
-			<Collapse line="196" />
+			<Collapse line="16" />
+			<Collapse line="24" />
+			<Collapse line="31" />
 		</Folding>
 	</File>
 </CodeBlocks_layout_file>

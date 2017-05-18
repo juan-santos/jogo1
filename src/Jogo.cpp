@@ -2,8 +2,10 @@
 
 #define NUMERO_VIDAS 3
 #define ALTURA_INICIAL 78
-#define NUMERO_ACERTOS_VITORIA 9
+#define NUMERO_ACERTOS_VITORIA 6
 #define SCORE_ACERTO 50
+#define LARGURA_ITEM 115
+#define ALTURA_BRUXA 64
 
 template <typename T>
 std::string to_string(T value) {
@@ -60,6 +62,7 @@ Jogo::Jogo(void) {
 
 }
 
+/*Realiza o desenho dos corações da vida*/
 void Jogo::desenharVida(sf::RenderWindow &App){
 	int posix = 552;
 
@@ -96,7 +99,7 @@ void Jogo::desenhaPilhaObjetos(sf::RenderWindow &App){
 		/* inserimos o elemento de volta na stack */
 		pilha.Insere(aux);
 		objeto.setTexture(imagem_objeto[aux]);
-		objeto.setPosition(posx + 57.5, posy + this->h);
+		objeto.setPosition(posx + float(LARGURA_ITEM/2), posy + this->h);
 		this->h -= 64;
 
         /* desenha o objeto */
@@ -105,6 +108,7 @@ void Jogo::desenhaPilhaObjetos(sf::RenderWindow &App){
 
 }
 
+/*Função que faz o objeto "cair*/
 void Jogo::lancarObjeto(sf::RenderWindow &App){
 
     //começo a jogar um próximo objeto
@@ -117,6 +121,7 @@ void Jogo::lancarObjeto(sf::RenderWindow &App){
     }
 }
 
+/*Função que verifica se a bruxinha acertou o objeto*/
 void Jogo::colisao(sf::RenderWindow &App){
 
     //obtenho a posição x e y do lançamento
@@ -124,25 +129,21 @@ void Jogo::colisao(sf::RenderWindow &App){
     int posicaoX = this->lancamento.getPosition().x;
 
     //se o objeto não chegou no mesmo y da bruxinha
-    if(440 >= posicaoY){
-
-        cout << "y obj" << posicaoY << " bruxa" << this->posy << endl;
-        cout << "x obj" << posicaoX << " bruxa" << this->posx << endl;
-
+    if(posicaoY <= 435){
         //vou avançando com o sprite e aumentando a velocidade
         posicaoY = posicaoY + 1 + int(this->placar/30);
-        cout << "Velocidade " <<this->placar/1000 << endl;
 
         this->lancamento.setPosition(posicaoX, posicaoY);
         //só exibo na tela se o item estiver em movimento
         App.draw(this->lancamento);
 
     } else{
+
         //houver algum desenho dentro do lançamento
         if(this->objetoLancamento != -1){
 
             //se a posição está correta
-            if((this->posx > posicaoX) && ((this->posx+100) >= posicaoX)){
+            if(fabs(this->posx + (LARGURA_ITEM/2) - posicaoX) < LARGURA_ITEM){
                 this->placar+= SCORE_ACERTO;
                 this->pilha.Insere(this->objetoLancamento);
             } else{
@@ -160,6 +161,7 @@ void Jogo::colisao(sf::RenderWindow &App){
 
 }
 
+/*Desenha o placar*/
 void Jogo::desenharPlacar(sf::RenderWindow &App){
 	//atualiza o placar
 	this->text_placar2.setString(to_string(placar));
@@ -169,12 +171,14 @@ void Jogo::desenharPlacar(sf::RenderWindow &App){
 	App.draw(this->text_placar2);
 }
 
+/*Desenha o painel do jogo*/
 void Jogo::desenharPainel(sf::RenderWindow &App){
 //desenho todos os componentesdo painel
   this->desenharPlacar(App);
   this->desenharVida(App);
 }
 
+/*Função que chama todas as funções gráficas da tela*/
 void Jogo::desenharTela(sf::RenderWindow &App){
 	//limpo os elementos da tela
 	App.clear(sf::Color(0, 0, 0, 0));

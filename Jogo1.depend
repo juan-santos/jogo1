@@ -566,3 +566,68 @@
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 
+1495122052 source:d:\arquivos usuario\documentos\desktop\jogo1\main.cpp
+	<iostream>
+	<SFML/Graphics.hpp>
+	<ctime>
+	"Jogo.h"
+	"Menu.h"
+	"Vitoria.h"
+	"Derrota.h"
+
+1495131977 d:\arquivos usuario\documentos\desktop\jogo1\include\jogo.h
+	"../src/Pilha.cpp"
+	<iostream>
+	"cScreen.h"
+	"Pilha.h"
+	<string>
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<sstream>
+	<math.h>
+
+1495105148 d:\arquivos usuario\documentos\desktop\jogo1\src\pilha.cpp
+	"Pilha.h"
+
+1495105086 d:\arquivos usuario\documentos\desktop\jogo1\include\pilha.h
+	<iostream>
+
+1493670593 d:\arquivos usuario\documentos\desktop\jogo1\include\cscreen.h
+	<SFML/Graphics.hpp>
+
+1495089254 d:\arquivos usuario\documentos\desktop\jogo1\include\menu.h
+	<iostream>
+	<string>
+	"cScreen.h"
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+
+1495122145 d:\arquivos usuario\documentos\desktop\jogo1\include\vitoria.h
+	<iostream>
+	<string>
+	"cScreen.h"
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+
+1495122136 d:\arquivos usuario\documentos\desktop\jogo1\include\derrota.h
+	<iostream>
+	<string>
+	"cScreen.h"
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+
+1493668011 source:d:\arquivos usuario\documentos\desktop\jogo1\src\cscreen.cpp
+	"cScreen.h"
+
+1495122535 source:d:\arquivos usuario\documentos\desktop\jogo1\src\derrota.cpp
+	"Derrota.h"
+
+1495122772 source:d:\arquivos usuario\documentos\desktop\jogo1\src\menu.cpp
+	"Menu.h"
+
+1495105148 source:d:\arquivos usuario\documentos\desktop\jogo1\src\pilha.cpp
+	"Pilha.h"
+
+1495122618 source:d:\arquivos usuario\documentos\desktop\jogo1\src\vitoria.cpp
+	"Vitoria.h"
+
