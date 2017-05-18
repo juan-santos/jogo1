@@ -1,51 +1,57 @@
 #include "Jogo.h"
+
+#define NUMERO_VIDAS 3
+#define ALTURA_INICIAL 78
+#define NUMERO_ACERTOS_VITORIA 9
+#define SCORE_ACERTO 50
+
 template <typename T>
 std::string to_string(T value) {
-  //create an output string stream
   std::ostringstream os ;
 
-  //throw the value into the string stream
   os << value ;
 
-  //convert the string stream into a string and return
   return os.str() ;
 }
 
 /* construtor com as imagens */
 Jogo::Jogo(void) {
-  movement_step = 10;
-  posx = 275;
-  posy = 350;
-  i = 0;
+    this->movement_step = 10;
+    this->posx = 275;
+    this->posy = 350;
+    this->i = 0;
 
-  this->objetoLancamento = -1;
+    //não há imagem para o sprite de lançamento
+    this->objetoLancamento = -1;
 
-  if (fundoJogo.loadFromFile("bin/Release/files/images/background.png"))
-	this->background.setTexture(fundoJogo);
+    //se achar a imagem de fundo
+    if (this->fundoJogo.loadFromFile("bin/Release/files/images/background.png")){
+        this->background.setTexture(fundoJogo);
+    }
 
-	//valor inicial do placar
-	this->placar = 0;
 
-	//se encontrar a fonte
-	if (this->Font.loadFromFile("bin/Release/files/fonts/Arkhamreg.ttf")) {
-		this->text_placar2.setFont(Font);
-		this->text_placar2.setColor(sf::Color(255, 255, 255, 255));
-		this->text_placar2.setCharacterSize(70);
-		this->text_placar2.setPosition({602.f, 180.f });
-	}
+    //valor inicial do placar
+    this->placar = 0;
 
-	this->nroVidas = 3;
+    //se encontrar a fonte
+    if (this->Font.loadFromFile("bin/Release/files/fonts/Arkhamreg.ttf")) {
+        this->text_placar2.setFont(Font);
+        this->text_placar2.setColor(sf::Color(255, 255, 255, 255));
+        this->text_placar2.setCharacterSize(70);
+        this->text_placar2.setPosition({602.f, 180.f });
+    }
+
+    //número inicial de vidas
+	this->nroVidas = NUMERO_VIDAS;
 
 	if (this->imagem_vidas.loadFromFile("bin/Release/files/images/coracao.png"))
     		this->vidas.setTexture(this->imagem_vidas);
-
 
 	this->imagem_jogador[0].loadFromFile("bin/Release/files/images/player01.png");
 	this->imagem_jogador[1].loadFromFile("bin/Release/files/images/player02.png");
 	this->imagem_jogador[2].loadFromFile("bin/Release/files/images/player03.png");
 	this->imagem_jogador[3].loadFromFile("bin/Release/files/images/player04.png");
 	this->imagem_jogador[4].loadFromFile("bin/Release/files/images/player05.png");
-
 
 	this->imagem_objeto[0].loadFromFile("bin/Release/files/images/ball.png");
 	this->imagem_objeto[1].loadFromFile("bin/Release/files/images/skull.png");
@@ -57,7 +63,7 @@ Jogo::Jogo(void) {
 void Jogo::desenharVida(sf::RenderWindow &App){
 	int posix = 552;
 
-	//desenho a quantidade de cora��es
+	//desenho a quantidade de coraçoes
 	for(int i = 0; i < this->nroVidas; i++){
 	    this->vidas.setPosition(posix, 350);
 	    App.draw(this->vidas);
@@ -72,7 +78,7 @@ void Jogo::desenhaPilhaObjetos(sf::RenderWindow &App){
 	Pilha<int> paux;
 	int aux;
 
-    this->h = 78; /* o tamanho inicial é sempre o mesmo */
+    this->h = ALTURA_INICIAL; /* o tamanho inicial é sempre o mesmo */
 
 	/* o personagem é desenhado primeiro */
 	this->jogador.setTexture(this->imagem_jogador[i++ % 4]);
@@ -90,11 +96,11 @@ void Jogo::desenhaPilhaObjetos(sf::RenderWindow &App){
 		/* inserimos o elemento de volta na stack */
 		pilha.Insere(aux);
 		objeto.setTexture(imagem_objeto[aux]);
-		objeto.setPosition(posx + 57.5, posy + h);
-		h -= 64;
+		objeto.setPosition(posx + 57.5, posy + this->h);
+		this->h -= 64;
 
-			/* desenha o objeto */
-			App.draw(this->objeto);
+        /* desenha o objeto */
+        App.draw(this->objeto);
     }
 
 }
@@ -113,8 +119,7 @@ void Jogo::lancarObjeto(sf::RenderWindow &App){
 
 void Jogo::colisao(sf::RenderWindow &App){
 
-    App.draw(this->lancamento);
-
+    //obtenho a posição x e y do lançamento
     int posicaoY = this->lancamento.getPosition().y;
     int posicaoX = this->lancamento.getPosition().x;
 
@@ -125,19 +130,20 @@ void Jogo::colisao(sf::RenderWindow &App){
         cout << "x obj" << posicaoX << " bruxa" << this->posx << endl;
 
         //vou avançando com o sprite e aumentando a velocidade
-        posicaoY = posicaoY + 3;//(this->placar/10);
+        posicaoY = posicaoY + 1 + int(this->placar/30);
+        cout << "Velocidade " <<this->placar/1000 << endl;
 
         this->lancamento.setPosition(posicaoX, posicaoY);
         //só exibo na tela se o item estiver em movimento
         App.draw(this->lancamento);
 
     } else{
-
+        //houver algum desenho dentro do lançamento
         if(this->objetoLancamento != -1){
 
             //se a posição está correta
             if((this->posx > posicaoX) && ((this->posx+100) >= posicaoX)){
-                this->placar+=50;
+                this->placar+= SCORE_ACERTO;
                 this->pilha.Insere(this->objetoLancamento);
             } else{
                 //se o jogador deixou o item cair
@@ -148,7 +154,7 @@ void Jogo::colisao(sf::RenderWindow &App){
             this->objetoLancamento = -1;
 
         }
-
+        //escondo o o lançamento até que a nova localização seja colocada
         this->lancamento.setPosition(-800, -600);
     }
 
@@ -164,6 +170,7 @@ void Jogo::desenharPlacar(sf::RenderWindow &App){
 }
 
 void Jogo::desenharPainel(sf::RenderWindow &App){
+//desenho todos os componentesdo painel
   this->desenharPlacar(App);
   this->desenharVida(App);
 }
@@ -178,8 +185,9 @@ void Jogo::desenharTela(sf::RenderWindow &App){
 
 	//desenhar o placar
 	this->desenharPainel(App);
+	//desenhar a pilha de objetos
 	this->desenhaPilhaObjetos(App);
-
+	//realizar a colisão entre personagem e objeto
     this->colisao(App);
 
 	//exibo na tela
@@ -191,23 +199,23 @@ int Jogo::Run(sf::RenderWindow &App) {
 	sf::Event Event;
 	bool Running = true;
 
-	//toco uma m�sica de fundo do jogo
+	//toco uma música de fundo do jogo
 	sf::Music MusicaFundo;
 
 	if (!MusicaFundo.openFromFile("bin/Release/files/musicas/fundo.ogg"))
 	      std::cerr << "Error loading menu.ogg" << std::endl;
 
-	MusicaFundo.setVolume(50); //defino um volume mais baixo que o normal para a m�sica n�o ser cansativa
+	MusicaFundo.setVolume(50); //defino um volume mais baixo que o normal para a música não ser cansativa
 	MusicaFundo.setLoop(true); //para a musica ficar sempre tocando
 	MusicaFundo.play(); //tocar a musica do menu
 
 	//enquanto estiver rodando
 	while (Running) {
 
-		//Verifico os eventos poss�veis
-		while (App.pollEvent(Event)) {
+        this->lancarObjeto(App);
 
-            this->lancarObjeto(App);
+		//Verifico os eventos possíveis
+		while (App.pollEvent(Event)) {
 
             //perdeu o jogo
             if(this->nroVidas < 0){
@@ -215,7 +223,7 @@ int Jogo::Run(sf::RenderWindow &App) {
             }
 
             //venceu
-            if(this->placar == 300){
+            if(this->placar == NUMERO_ACERTOS_VITORIA*SCORE_ACERTO){
                 return 2;
             }
 
@@ -254,6 +262,6 @@ int Jogo::Run(sf::RenderWindow &App) {
 		this->desenharTela(App);
 	}
 
-	//caso aconte�a algum erro e chegue neste ponto...
+	//caso aconteça algum erro e chegue neste ponto...
 	return -1;
 }
